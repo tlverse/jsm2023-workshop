@@ -1,5 +1,5 @@
-Package: tlverseworkshops
-Title: Targeted Learning Workshops
+Package: jsm2023workshop
+Title: JSM 2023 Workshop
 Version: 1.0.0
 Depends: R (>= 4.0.0)
 Imports:
@@ -63,6 +63,6 @@ Remotes:
   github::tlverse/hal9001@devel,
   github::nhejazi/haldensify@master
 URL:
-  https://github.com/tlverse/tlverse-workshops,
-  https://tlverse.org/tlverse-workshops
-BugReports: https://github.com/tlverse/tlverse-workshops/issues
+  https://github.com/tlverse/jsm2023-workshop,
+  https://tlverse.org/jsm2023-workshop
+BugReports: https://github.com/tlverse/jsm2023-workshop/issues

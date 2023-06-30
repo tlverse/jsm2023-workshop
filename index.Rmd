@@ -1,9 +1,8 @@
 ---
 knit: "bookdown::render_book"
-title: "[Workshop] Targeted Learning in the `tlverse`"
-subtitle: "Causal Inference Meets Machine Learning"
-author: "Mark van der Laan, Alan Hubbard, Jeremy Coyle, Nima Hejazi, Ivana
-  Malenica, Rachael Phillips"
+title: "[JSM 2023 Workshop] Targeted Learning"
+subtitle: "Techniques and Tools for Causal Machine Learning"
+author: "Mark van der Laan, Alan Hubbard, Nima Hejazi, Ivana Malenica, Rachael Phillips"
 date: "updated: `r format(Sys.time(), '%B %d, %Y')`"
 documentclass: book
 site: bookdown::bookdown_site
@@ -16,182 +15,102 @@ colorlinks: yes
 lot: yes
 lof: yes
 always_allow_html: yes
-url: 'https\://tlverse.org/tlverse-workshops/'
-github-repo: tlverse/tlverse-workshops
+url: 'https\://tlverse.org/jsm2023-workshop/'
+github-repo: tlverse/jsm2023-workshop
 graphics: yes
 description: "Open source, reproducible teaching materials accompanying a
-  workshop or short course on Targeted Learning with the [`tlverse` software
+  short course on Targeted Learning with the [`tlverse` software
   ecosystem](https://github.com/tlverse)."
 ---
 
-# Welcome! {-}
+# Course Information {-}
 
-This open source, reproducible vignette is for a workshop on the
-Targeted Learning framework for statistical and causal inference with machine
-learning.  Beyond introducing Targeted Learning, the workshop focuses on
-applying the methodology in practice using the [`tlverse` software
-ecosystem](https://github.com/tlverse).  These materials are based on a working
-draft of the book [*Targeted Learning in `R`: Causal Data Science with the
-`tlverse` Software Ecosystem*](https://tlverse.org/tlverse-handbook/), which
-includes in-depth discussion of these topics and much more, and may serve as a
-useful reference to accompany these workshop materials.
+This open source, reproducible vignette is for a full-day short course on August 7, 2023 at the American Statistical Association's Joint Statistical Meetings (JSM) Conference in Toronto, Ontario. Entitled "Targeted Learning in the `tlverse`: Techniques and Tools for Causal Machine Learning", this workshop provides a comprehensive introduction to the field of Targeted Learning, at the 
+intersection of causal inference and machine learning, and its accompanying 
+[`tlverse` software ecosystem](https://github.com/tlverse). 
 
-<img style="float: center; margin-right: 1%; margin-bottom: 0.01em"
-     src="img/logos/tlverse-logo.svg" width="30%" height="30%">
-<img style="float: center; margin-right: 1%; margin-bottom: 0.01em"
-     src="img/logos/Rlogo.svg" width="35%" height="35%">
-<img style="float: center; margin-right: 1%; margin-bottom: 0.01em"
-     src="img/logos/vdl-logo-transparent.svg" width="30%" height="30%">
-<p style="clear: both;">
-<br>
+Great care is required when disentangling intricate relationships for causal and statistical inference in medicine, public health, marketing, political science, and myriad other fields. However, traditional statistical practice ignores complexities that exist in real-world problems, for example, by avoiding interaction terms in regression analysis because such terms complicate and obfuscate the interpretation of results. The field of Targeted Learning (TL) presents a solution to such practices by outlining a modern statistical framework that unifies semiparametric theory, machine learning, and causal inference. This workshop provides a comprehensive introduction to TL and its accompanying free and open source software ecosystem, the `tlverse`. It will be of interest to statisticians and data scientists who wish to apply cutting-edge statistical and causal inference approaches to rigorously formalize and answer substantive scientific questions. This workshop incorporates discussion and hands-on R programming exercises, allowing attendees to familiarize themselves with methodology and tools that translate to improvements in real-world data analytic practice. 
 
-## Important links {-}
 
-* __Load R environment__: Please set up the `R` virtual environment using the
-  [instructions](https://github.com/tlverse/tlverse-workshops/blob/master/install.md).
-  If you experiencing issues with the `R` environment, you may install the 
-  relevant software packages before the workshop using the [installation
-  script](https://github.com/tlverse/tlverse-workshops/blob/master/install.R).
+## Schedule {-}
 
-* You will probably exceed the GitHub API rate limit during this installation,
-  which will throw an error. This issue and the solution are addressed
-  [here](#installtlverse).
-
-* __Code__: `R` script files for each section of the workshop are available via
-  the GitHub repository for the workshop at
-  https://github.com/tlverse/tlverse-workshops/tree/master/R_code
-
-## About this workshop {-}
-
-This workshop will provide a comprehensive introduction to the field of
-_Targeted Learning (TL)_ for statistical and causal inference, and the 
-corresponding [`tlverse` software ecosystem](https://github.com/tlverse). 
-Emphasis will be placed on super learning (SL) and targeted minimum loss-based 
-estimation (TMLE) for causal effects of single time point interventions. TMLE 
-represents a finite-sample robust, efficient substitution estimation strategy 
-that uses super (ensemble machine) learning to flexibly adjust for confounding 
-while yielding valid statistical inference. We will discuss TMLE for the causal 
-effects of static and dynamic interventions; time permitting, additional topics 
-to be discussed will include estimation of the causal effects of optimal dynamic 
-and stochastic interventions.
-
-In addition to discussion, this workshop will incorporate both interactive
-activities and hands-on, guided `R` programming exercises, to allow participants
-the opportunity to familiarize themselves with methodology and tools that will
-translate to real-world data analysis. It is highly recommended for participants
-to have an understanding of basic statistical concepts such as confounding,
-probability distributions, confidence intervals, hypothesis testing, and
-regression. Advanced knowledge of mathematical statistics is useful but not
-necessary. Familiarity with the `R` programming language will be essential.
-
-## Outline {-}
-
-* _Warm-up_: The Roadmap of Targeted Learning and [Why We Need A Statistical
-  Revolution](https://senseaboutscienceusa.org/super-learning-and-the-revolution-in-knowledge/)
-  with an *[introductory video lecture by Mark van der Laan and Alan
-  Hubbard](https://www.dropbox.com/s/7b6ru2ahycqq80v/ENAR2021-lecture.mp4?dl=0)*
-  (__Please watch this hour-long lecture before the workshop.__)
-* 09:00-09:30A: [Introduction to the `tlverse` Software
-  Ecosystem](https://tlverse.org) and the [WASH Benefits
-  data](http://www.washbenefits.net/)
-* 09:30-10:00A: Super learning with the [`sl3` `R`
-  package](https://github.com/tlverse/sl3)
-* 10:00-11:00A: Programming exercises with `sl3`
-* 11:00-11:15A: Morning Coffee Break and Q&A
-* 11:15-12:00P: Targeted Learning for causal inference with the [`tmle3` `R`
-  package](https://github.com/tlverse/tmle3)
-* 12:00-12:45P: Programming exercises with `tmle3`
-* 12:45-01:30P: Lunch Break
-* 01:30-02:15P: Optimal treatment regimes with the [`tmle3mopttx` `R`
-  package](https://github.com/tlverse/tmle3mopttx)
-* 02:15-03:00P: Programming exercises with `tmle3mopttx`
-* 03:00-03:15P: Afternoon Coffee Break
-* 03:15-04:00P: Stochastic treatment regimes with the [`tmle3shift` `R`
-  package](https://github.com/tlverse/tmle3shift)
-* 04:00-04:30P: Programming exercises with `tmle3shift`
-* 04:30-05:00P: Concluding remarks and discussion
+* _Pre-workshop software installation_: Please see "Part 1: Preliminaries" of 
+  this website to set up `R`, RStudio, and the `tlverse`.
+* _Pre-workshop reading_: The Roadmap of Targeted Learning and [Why We 
+  Need A Statistical Revolution](https://senseaboutscienceusa.org/super-learning-and-the-revolution-in-knowledge/)
+* 08:30 – 10:15: Targeted Learning: the bridge from machine learning to 
+  statistical and causal inference
+* 10:15 – 10:30: Morning Break
+* 10:30 – 10:40: The `tlverse` software ecosystem of R packages for Targeted 
+  Learning
+* 10:40 – 11:40: Cross-validation and the `origami` R package 
+* 11:40 – 12:00: Coding exercise with the `origami` R package
+* 12:00 – 12:30: Super Learning and the `sl3` R package
+* 12:30 – 14:00: Lunch Break
+* 14:00 – 14:20: Super learning and the `sl3` R package
+* 14:20 – 14:45: Coding exercise with the `sl3` R package
+* 14:45 – 15:15: Targeted minimum loss-based estimation (TMLE) and the `tmle3` 
+  R package
+* 15:15 – 15:30: Afternoon break
+* 15:30 – 16:00: Targeted minimum loss-based estimation (TMLE) and the `tmle3` 
+  R package
+* 16:00 – 16:30: Coding exercise with the `tmle3` R package
+* 16:30 – 17:00: Concluding remarks
 
 <!--
-__NOTE: All listings are in Pacific Time.__
+__NOTE: All listings are in Eastern Time.__
 -->
 
-## About the instructors {-}
+## Instructors {-}
 
 ### Mark van der Laan {-}
 
-Mark van der Laan, PhD, is Professor of Biostatistics and Statistics at UC
-Berkeley. His research interests include statistical methods in computational
-biology, survival analysis, censored data, adaptive designs, targeted maximum
-likelihood estimation, causal inference, data-adaptive loss-based learning, and
-multiple testing. His research group developed loss-based super learning in
-semiparametric models, based on cross-validation, as a generic optimal tool for
-the estimation of infinite-dimensional parameters, such as nonparametric density
-estimation and prediction with both censored and uncensored data. Building on
-this work, his research group developed targeted maximum likelihood estimation
-for a target parameter of the data-generating distribution in arbitrary
-semiparametric and nonparametric models, as a generic optimal methodology for
-statistical and causal inference. Most recently, Mark's group has focused in
-part on the development of a centralized, principled set of software tools for
-targeted learning, the `tlverse`.
+Mark van der Laan is the Jiann-Ping Hsu/Karl E. Peace Professor of Biostatistics and Statistics at the University of California, Berkeley. He has made contributions to survival analysis, semiparametric statistics, multiple testing, and causal inference. He also developed the targeted maximum likelihood methodology and general theory for super learning. He is a founding editor of the Journal of Causal Inference and International Journal of Biostatistics. He has authored 4 books on targeted learning, censored data and multiple testing, authored over 300 publications, and graduated over 50 Ph.D students. He received the COPSS Presidents' Award in 2005, the Mortimer Spiegelman Award in 2004, and the van Dantzig Award in 2005.
 
 ### Alan Hubbard {-}
 
-Alan Hubbard is Professor of Biostatistics, former head of the Division of
-Biostatistics at UC Berkeley, and head of data analytics core at UC Berkeley's
-SuperFund research program. His current research interests include causal
-inference, variable importance analysis, statistical machine learning,
-estimation of and inference for data-adaptive statistical target parameters, and
-targeted minimum loss-based estimation. Research in his group is generally
-motivated by applications to problems in computational biology, epidemiology,
-and precision medicine.
-
-### Jeremy Coyle {-}
-
-Jeremy Coyle, PhD, is a consulting data scientist and statistical programmer,
-currently leading the software development effort that has produced the
-`tlverse` ecosystem of R packages and related software tools. Jeremy earned his
-PhD in Biostatistics from UC Berkeley in 2016, primarily under the supervision
-of Alan Hubbard.
+Alan Hubbard, Professor and Head of Biostatistics, University of California, Berkeley, co-director of the Center of Targeted Learning, and head of the computational biology core of the SuperFund Center at UC Berkeley (NIH/EPA), as well a consulting statistician on several federally funded and foundation projects. He has worked as well on projects ranging from molecular biology of aging, epidemiology, and infectious disease modeling, but most all of his work has focused on semi-parametric estimation in high-dimensional data. His current methods-research focuses on precision medicine, variable importance, statistical inference for data-adaptive parameters, and statistical software implementing targeted learning methods. Currently working in several areas of applied research, including early childhood development in developing countries, environmental genomics and comparative effectiveness research. He has most recently concentrated on using complex patient data for better prediction for acute trauma patients.  
 
 ### Nima Hejazi {-}
 
-[Nima Hejazi](https://nimahejazi.org), PhD, is an incoming Assistant Professor
-of Biostatistics at the [Harvard T.H. Chan School of Public
-Health](https://www.hsph.harvard.edu/biostatistics/). He received his PhD in
-biostatistics at UC Berkeley, working under the supervision of Mark van der Laan
-and Alan Hubbard, and afterwards held an NSF postdoctoral research fellowship.
-Nima's research interests blend causal inference, machine learning,
-semiparametric estimation, and computational statistics -- areas of recent
-emphasis include causal mediation analysis, efficiency under biased sampling
-designs, non/semi-parametric sieve estimation with machine learning, and
-targeted loss-based estimation. His work is primarily driven by applications in
-clinical trials (esp. vaccine efficacy trials), infectious disease epidemiology,
-and computational biology. Nima is passionate about statistical computing
-and open source software design standards for statistical data science, and he
-has co-led or contributed significantly to many `tlverse` packages (`hal9001`,
-`sl3`, `tmle3`, `origami`, `tmle3shift`, `tmle3mediate`).
+[Nima Hejazi](https://nimahejazi.org) is an Assistant Professor of 
+Biostatistics at the Harvard T.H. Chan School of Public Health. His research 
+interests concentrate in causal inference and statistical machine learning (or 
+"causal machine learning"), focusing on the development of efficient, 
+model-agnostic statistical inference methods. Nima is often motivated by 
+topics from non- and semi-parametric inference and efficiency theory; 
+high-dimensional inference; targeted minimum loss-based estimation; biased 
+sampling designs, especially outcome-dependent two-phase designs (e.g., 
+case-control studies); and sequentially adaptive trials. He studies these 
+topics through the lens of statistical parameters motivated by causal 
+inference (e.g., heterogeneous treatment effects, dose-response curves, 
+mediational direct/indirect effects). Nima is also deeply interested in 
+high-performance statistical computing and is a passionate advocate for 
+open-source software and the critical role it plays in the promotion of 
+transparency, reproducibility, and "data analytic hygiene" in the practice of 
+applied statistics and statistical data science. Recently, he has been 
+captivated by the rich statistical issues and pressing public health 
+challenges common in clinical trials and/or observational studies evaluating 
+the efficacy of preventive vaccines or curatives/therapeutics for high-burden 
+infectious diseases (HIV/AIDS, COVID-19), in infectious disease epidemiology, 
+and in computational immunology.
 
 ### Ivana Malenica {-}
 
-Ivana Malenica is a PhD student in biostatistics advised by Mark van der Laan.
-Ivana is currently a fellow at the Berkeley Institute for Data Science, after
-serving as a NIH Biomedical Big Data and Freeport-McMoRan Genomic Engine fellow.
-She earned her Master's in Biostatistics and Bachelor's in Mathematics, and
-spent some time at the Translational Genomics Research Institute. Very broadly,
-her research interests span non/semi-parametric theory, probability theory,
-machine learning, causal inference and high-dimensional statistics. Most of her
-current work involves complex dependent settings (dependence through time and
-network) and adaptive sequential designs.
+[Ivana Malenica](https://imalenica.github.io/) is a Postdoctoral Researcher in the [Department of Statistics](https://statistics.fas.harvard.edu/) at 
+Harvard University and a Wojcicki and Troper Data Science Fellow at the 
+[Harvard Data Science Initiative](https://datascience.harvard.edu/). She obtained her PhD in Biostatistics at UC Berkeley working with Mark van der Laan, where she was a Berkeley Institute for Data Science Fellow and a NIH Biomedical Big Data Fellow. Her research interests span non/semi-parametric theory, causal inference and machine learning, with emphasis on personalized health and dependent settings. Most of her current work involves causal inference with time and network dependence, online learning, optimal individualized treatment, reinforcement learning, and adaptive sequential designs.
 
 ### Rachael Phillips {-}
 
-Rachael Phillips is a PhD student in biostatistics, advised by Alan Hubbard and
-Mark van der Laan. She has an MA in Biostatistics, BS in Biology, and BA in
-Mathematics. Her research integrates causal inference, machine learning, and 
-nonparametric statistics to realistically approximate answers to causal questions 
-with statistical confidence. Motivated by issues arising in healthcare, the 
-projects she's pursued include the development of (i) clinical algorithm frameworks 
-and guidelines; (ii) real-world data analysis methodologies for generating and 
-evaluating real-world evidence; (iii) open-source software, including key contributions to 
-`sl3`, `origami` and `hal9001` packages; and (iv) biostatistics graduate-level 
-courses and other educational material for targeted learning and causal inference.
+[Rachael Phillips](rachaelvphillips@berkeley.edu) is a Senior Data Analyst for 
+the [Center for Targeted Learning (CTML)](https://ctml.berkeley.edu) at UC 
+Berkeley. She has a PhD in Biostatistics, MA in Biostatistics, BS in Biology, 
+and BA in Mathematics. Motivated by issues arising in healthcare, the projects 
+she’s pursued include the development of clinical algorithm frameworks and 
+guidelines; real-world data analysis methodologies for generating and 
+evaluating real-world evidence; and biostatistics graduate-level courses and 
+other educational material for Targeted Learning and causal inference. Rachael 
+collaborates with clinicians and statisticians at UC San Francisco and Novo 
+Nordisk, and during her PhD studies, she worked closely with clinicians and 
+biostatisticians at the U.S. FDA under Drs. Susan Gruber and Mark van der Laan.
