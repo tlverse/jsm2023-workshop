@@ -45,7 +45,6 @@ Suggests:
   glmnet,
   arm,
   gam,
-  speedglm,
   polspline,
   SuperLearner,
   hal9001 (>= 0.4.3),
