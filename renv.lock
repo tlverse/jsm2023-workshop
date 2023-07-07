@@ -3050,6 +3050,11 @@
       ],
       "Hash": "8aa2c439f92fda50e4e2b8d9c9b6e979"
     },
+    "speedglm": {
+      "Package": "speedglm",
+      "Version": "0.3.5",
+      "Source": "Repository"
+    },
     "stringi": {
       "Package": "stringi",
       "Version": "1.7.12",
