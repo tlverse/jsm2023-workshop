@@ -43,6 +43,7 @@ Suggests:
   xgboost,
   ranger,
   glmnet,
+  speedglm,
   arm,
   gam,
   polspline,

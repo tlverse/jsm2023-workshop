@@ -557,7 +557,7 @@ that each variable in the data set plays as the nodes in a DAG.
 
 We generate three different ensemble learners that must be fit.
 
-1. learners for the outcome regression, 
+1. learners for the outcome regression,
 
 2. propensity score, and
 
