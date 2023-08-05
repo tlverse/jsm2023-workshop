@@ -3,7 +3,7 @@ knit: "bookdown::render_book"
 title: "[JSM 2023 Workshop] Targeted Learning"
 subtitle: "Techniques and Tools for Causal Machine Learning"
 author: "Mark van der Laan, Alan Hubbard, Nima Hejazi, Ivana Malenica, Rachael Phillips"
-date: "updated: July 28, 2023"
+date: "updated: August 05, 2023"
 documentclass: book
 site: bookdown::bookdown_site
 bibliography: [book.bib, packages.bib]
