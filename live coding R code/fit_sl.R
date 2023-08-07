@@ -1,10 +1,3 @@
-################################################################################
-# - Prediction tasks with sl3
-# - Constructing and fitting a super learner (SL) in sl3
-# - Looking up learner documentation
-# - Modifying learner parameters
-# - Difference between R6 (sl3) and S3 (most R packages) methods 
-################################################################################
 
 ### 0. Load Data and R packages
 library(data.table)
